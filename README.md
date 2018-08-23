@@ -2,20 +2,17 @@
 
 # Google Cloud
 
-* [Background functions documentation][docs]
-* [Background functions tutorial][tutorial]
-* [Background functions sample source code][code]
-
-[docs]: https://cloud.google.com/functions/docs/writing/background
-[tutorial]: https://cloud.google.com/functions/docs/tutorials/background
-[code]: index.js
+* Spins up a GCP Project with examples on enabling billing, services, service accounts and assigning roles.
+[IAM](https://cloud.google.com/iam/docs/)
 
 ## Getting Started
 ```
+# this will provision your environment via shell scripts - takes a few min.
 ./setup.sh
 ```
 
 ## Teardown
 ```
+# this will teardown the entire project environment
 ./teardown.sh
 ```
