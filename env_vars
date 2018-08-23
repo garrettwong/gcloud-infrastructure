@@ -1,0 +1,5 @@
+export STATE_FILE=".project.state"
+
+export NAME="garrettwong-iam"
+export GCP_EMAIL="[GCP_EMAIL_HERE]"
+
