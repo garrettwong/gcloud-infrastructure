@@ -51,6 +51,7 @@ done
 . scripts/create_storage_bucket.sh $PROJECT_ID
 . scripts/create_service_account_key.sh $PROJECT_ID $EXPORTED_SERVICE_ACCOUNT_EMAIL
 . scripts/copy_sa_key_to_gcs_bucket.sh $EXPORTED_SERVICE_ACCOUNT_KEY_PATH $EXPORTED_BUCKET_NAME 
+. scripts/kms.sh $PROJECT_ID # setup kms enc/dec
 
 URL="https://console.cloud.google.com/home/dashboard?project=$PROJECT_ID"
 echo "Project setup completed.  Access URL here: $URL"
