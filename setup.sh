@@ -31,10 +31,13 @@ echo "Linking billing account: " $BILLING_ID
 gcloud beta billing projects link $PROJECT_ID --billing-account=$BILLING_ID
 
 declare -a SERVICES_TO_ENABLE=("cloudbilling.googleapis.com" \
-    "compute.googleapis.com" \
-    "pubsub.googleapis.com" \
-    "iam.googleapis.com" \
-    "iamcredentials.googleapis.com")
+    "compute.googleapis.com" \              # GCE
+    "pubsub.googleapis.com" \               # PubSub
+    "iam.googleapis.com" \                  # IAM
+    "iamcredentials.googleapis.com" \       # IAM
+    "storage-api.googleapis.com" \          # GCS
+    "storage-component.googleapis.com " \   # GCS
+)
 
 for SERVICE in "${SERVICES_TO_ENABLE[@]}"
 do
@@ -45,7 +48,9 @@ done
 # additional scripts
 . scripts/create_pub_sub.sh $PROJECT_ID
 . scripts/create_service_account.sh $PROJECT_ID
-
+. scripts/create_storage_bucket.sh $PROJECT_ID
+. scripts/create_service_account_key.sh $PROJECT_ID $EXPORTED_SERVICE_ACCOUNT_EMAIL
+. scripts/copy_sa_key_to_gcs_bucket.sh $EXPORTED_SERVICE_ACCOUNT_KEY_PATH $EXPORTED_BUCKET_NAME 
 
 URL="https://console.cloud.google.com/home/dashboard?project=$PROJECT_ID"
 echo "Project setup completed.  Access URL here: $URL"

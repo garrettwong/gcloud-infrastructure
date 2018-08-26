@@ -8,8 +8,8 @@
 echo $PROJECT_ID
 PROJECT_ID=$1
 
-export TOPIC="topic"
-export TOPIC_SUBSCRIPTION=$TOPIC-TOPIC_SUBSCRIPTION
+TOPIC="topic"
+TOPIC_SUBSCRIPTION=$TOPIC-TOPIC_SUBSCRIPTION
 
 gcloud pubsub topics create $TOPIC --project $PROJECT_ID
 gcloud pubsub subscriptions create $TOPIC_SUBSCRIPTION --topic $TOPIC --project $PROJECT_ID
