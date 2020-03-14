@@ -6,13 +6,15 @@
 [IAM](https://cloud.google.com/iam/docs/)
 
 ## Getting Started
-```
+
+```bash
 # this will provision your environment via shell scripts - takes a few min.
 ./setup.sh
 ```
 
 ## Teardown
-```
+
+```bash
 # this will teardown the entire project environment
 ./teardown.sh
 ```
